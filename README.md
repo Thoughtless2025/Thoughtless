@@ -37,7 +37,7 @@ Our user journey is designed to be straightforward and engaging:
 
 This project is built with a strong commitment to **openness and transparency**. We believe in sharing, learning, and collaboration. The vast majority of the code you see here (excluding sensitive configurations like API keys, which are securely handled) is available for you to explore, learn from, and contribute to.
 
-**You can find the full source code on GitHub: [Your GitHub Repository URL Here](https://github.com/yourusername/your-gemini-chat-app)** (Remember to replace this with your actual repo URL!)
+**You can find the full source code on GitHub: https://github.com/Thoughtless2025/
 
 ### Acknowledging the AI
 
