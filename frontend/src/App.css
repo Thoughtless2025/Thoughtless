@@ -1,0 +1,98 @@
+/* thoughtless/frontend/src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden; /* For rounded corners */
+}
+
+.loading, .error, .not-found {
+  padding: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Homepage specific styles */
+.homepage-container {
+  padding: 20px;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.ad-space-top, .ad-space-bottom {
+  background-color: #eee;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  margin: 10px auto;
+  font-style: italic;
+  color: #666;
+  max-width: 80%;
+}
+
+.blurb-section, .minds-i-section {
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.blurb-section h2, .minds-i-section h3 {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.cat-image, .book-cover-image {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.go-to-chat-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.go-to-chat-button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Basic styles for other components - you'll expand these */
+.chat-list-container, .chat-thread-container, .auth-container {
+    padding: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Add more specific styling for .chat-list, .chat-item, .interaction-item, etc. */
