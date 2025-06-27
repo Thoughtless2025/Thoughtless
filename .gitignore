@@ -1,1 +1,31 @@
 
+# Gitignore for the root of the project
+# This file tells Git which files or folders to ignore when committing to your repository.
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+.env
+.DS_Store
+
+# Frontend specific (if not handled by frontend's .gitignore)
+frontend/build/
+
+# Backend specific (if not handled by backend's .gitignore)
+backend/node_modules/
+backend/.env
+
+# Firebase specific
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
