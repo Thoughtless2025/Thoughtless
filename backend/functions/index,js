@@ -1,0 +1,18 @@
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const cors = require("cors")({ origin: true });
+require("dotenv").config(); // Load environment variables
+
+// Initialize Firebase Admin SDK
+admin.initializeApp();
+
+// Export individual functions
+const createChatFunction = require("./createChat");
+const getChatsFunction = require("./getChats");
+const getChatDetailsFunction = require("./getChatDetails");
+const addCommentFunction = require("./addComment");
+
+exports.createChat = functions.https.onCall((data, context) => cors(createChatFunction(data, context)));
+exports.getChats = functions.https.onRequest((req, res) => cors(getChatsFunction(req, res)));
+exports.getChatDetails = functions.https.onRequest((req, res) => cors(getChatDetailsFunction(req, res)));
+exports.addComment = functions.https.onCall((data, context) => cors(addCommentFunction(data, context)));
