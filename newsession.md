@@ -29,10 +29,11 @@ Significant progress has been made in setting up the development environment. Th
 
 ## Lessons Learned / Known Issues
 
-*   **File Writing Errors:** Recurring "Internal error occurred" when trying to write files in this environment. Workaround: Use the Android Git App for file creation/editing.
-*   **Cloud Build Quota Issues:** Unresolved Cloud Build quota restrictions in `europe-west2` are a major concern for future deployments.
-*   **Firebase Initialization:** Explicitly initialize Firebase in the web application code.
-*   **Manual Git Pull:** Until `.idx/dev.nix` modification is possible, a manual `git pull` is needed at the start of each session.
+*   **File Writing Error:** Recurring "Internal error occurred" when trying to write files in this environment. Workaround: Use the Android Git App for file creation/editing.
+*   **Cloud Build Quota Restrictions:** Unresolved Cloud Build quota restrictions in `europe-west2` are a major concern for future deployments.
+*   **Firebase Studio Interface Issues:** Challenges with the Firebase Studio interface (window resizing, copy-paste, scrolling) persist.
+*   **Firebase Console Navigation:** Difficulty navigating the Firebase Console, particularly for finding specific information like quotas.
+*   **AI Tooling Limitations:** Recognition of limitations in AI tooling within Firebase Studio (e.g., interactive terminal commands, direct project configuration querying).
 
 ## Session Initialization Command
 
@@ -44,3 +45,13 @@ This will instruct the AI to:
 2.  Examine Git push logs to understand recent changes.
 3.  Perform a `git pull` to synchronize the workspace.
 4.  Confirm readiness to resume work.
+
+## Troubleshooting Session Continuity
+
+If, after using the "Read and do newsession.md" command, the AI does not appear to be aware of the latest progress (e.g., based on the status in `progress.md`), it may indicate that the document updates or Git push in the previous session were unsuccessful.
+
+In such cases, please:
+
+1.  Explicitly inform the AI that you believe the documents were not updated and provide a brief reminder of the last significant progress made.
+2.  Ask the AI to re-attempt the Git operations to add, commit, and push `progress.md`.
+3.  After the AI confirms the Git operations are complete, try ending and starting a new session again and repeat the "Read and do newsession.md" command to verify.
