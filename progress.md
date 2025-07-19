@@ -29,6 +29,9 @@ This document tracks the progress and status of the Thoughtless App project.
 
 ## Next Steps
 
+*   Link the custom domain `john01.com` to the Firebase Hosting URL (`https://thoughtlessappnew.web.app`). This involves:
+    *   Adding the custom domain in Firebase Hosting settings.
+    *   Configuring DNS records (A records, TXT records) at the domain registrar (GoDaddy) to point the domain to Firebase Hosting.
 *   Manually add test data to the Firestore "chats" collection via the Firebase console to verify data display on the deployed web page.
 *   Implement a mechanism (e.g., a simple form) on the web page to allow adding test chat data using the `addChatData` function.
 *   Continue developing the web application to display full chat conversations and other features.
