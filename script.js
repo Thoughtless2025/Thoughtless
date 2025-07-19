@@ -51,4 +51,45 @@ async function addChatData(chatTitle, messages) {
   }
 }
 
-// TODO: Implement function to display chat data from Firestore
+// Function to display chat data from Firestore
+async function displayChatData() {
+  try {
+    const chatListDiv = document.getElementById("chat-list");
+    chatListDiv.innerHTML = "Loading chats..."; // Add a loading message
+
+    // Get all documents from the 'chats' collection
+    const querySnapshot = await db.collection("chats").get();
+
+    chatListDiv.innerHTML = ""; // Clear the loading message
+
+    if (querySnapshot.empty) {
+      chatListDiv.innerHTML = "No chats found.";
+      return;
+    }
+
+    // Create a list to display chat titles
+    const ul = document.createElement("ul");
+
+    querySnapshot.forEach((doc) => {
+      // Get chat data
+      const chat = doc.data();
+
+      // Create a list item for each chat
+      const li = document.createElement("li");
+      li.textContent = chat.title; // Display the chat title
+      // You can add more details here if needed
+
+      ul.appendChild(li);
+    });
+
+    chatListDiv.appendChild(ul);
+
+  } catch (error) {
+    console.error("Error displaying chat data:", error);
+    const chatListDiv = document.getElementById("chat-list");
+    chatListDiv.innerHTML = "Error loading chats."; // Display an error message
+  }
+}
+
+// Call the displayChatData function when the page loads
+window.onload = displayChatData;
