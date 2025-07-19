@@ -22,6 +22,11 @@ A key challenge is the lack of persistence across and within different Gemini in
 
 Significant progress has been made in setting up the development environment. The current focus is on building the foundational application functionality for chat data storage.
 
+## Firebase Project Details
+
+*   **Project Name:** ThoughtlessAppNew
+*   **Project ID:** thoughtlessappnew
+
 ## Lessons Learned / Known Issues
 
 *   **File Writing Errors:** Recurring "Internal error occurred" when trying to write files in this environment. Workaround: Use the Android Git App for file creation/editing.
@@ -31,7 +36,7 @@ Significant progress has been made in setting up the development environment. Th
 
 ## Session Initialization Command
 
-At the start of a new session, say or type: "Read and do new_session.md."
+At the start of a new session, say or type: "Read and do newsession.md."
 
 This will instruct the AI to:
 
