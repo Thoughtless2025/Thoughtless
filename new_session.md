@@ -36,5 +36,6 @@ At the start of a new session, say or type: "Read and do new_session.md."
 This will instruct the AI to:
 
 1.  Read this document and `progress.md` for context.
-2.  Perform a `git pull` to synchronize the workspace.
-3.  Confirm readiness to resume work.
+2.  Examine Git push logs to understand recent changes.
+3.  Perform a `git pull` to synchronize the workspace.
+4.  Confirm readiness to resume work.
