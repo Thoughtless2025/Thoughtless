@@ -18,6 +18,7 @@ This document tracks the progress and status of the Thoughtless App project.
 *   **Firestore Data Display Functionality:** A function (`displayChatData`) has been implemented in `script.js` to retrieve chat titles from Firestore and display them on the web page.
 *   **Firebase Hosting Deployment:** The basic web application has been successfully deployed to Firebase Hosting.
 *   **Deployment Verification:** The deployed web page is accessible and correctly displays "Chat Sessions" and "No chats found" (as expected since no data has been added yet), confirming successful connection to Firestore.
+*   **Custom Domain Linking (In Progress):** Initiated the process of linking the custom domain `john01.com` to the Firebase Hosting URL (`https://thoughtlessappnew.web.app`). Added the custom domain in the Firebase console and updated the TXT records in GoDaddy for domain verification.
 
 ## Key Challenges & Issues
 
@@ -26,12 +27,14 @@ This document tracks the progress and status of the Thoughtless App project.
 *   **Firebase Studio Interface Issues:** Challenges with the Firebase Studio interface (window resizing, copy-paste, scrolling) persist.
 *   **Firebase Console Navigation:** Difficulty navigating the Firebase Console, particularly for finding specific information like quotas.
 *   **AI Tooling Limitations:** Recognition of limitations in AI tooling within Firebase Studio (e.g., interactive terminal commands, direct project configuration querying).
+*   **Custom Domain DNS Propagation:** Waiting for DNS propagation of updated TXT records for `john01.com` to complete before Firebase can verify domain ownership and provide A record details.
 
 ## Next Steps
 
-*   Link the custom domain `john01.com` to the Firebase Hosting URL (`https://thoughtlessappnew.web.app`). This involves:
-    *   Adding the custom domain in Firebase Hosting settings.
-    *   Configuring DNS records (A records, TXT records) at the domain registrar (GoDaddy) to point the domain to Firebase Hosting.
+*   **Monitor DNS Propagation:** Wait for the TXT record changes for `john01.com` to propagate and for Firebase to verify domain ownership.
+*   **Obtain and Update A Records:** Once verified, get the A record values from the Firebase console and update the A records for `john01.com` in GoDaddy.
+*   **Wait for A Record Propagation:** Allow time for the A record changes to propagate.
+*   **Verify Domain Connection:** Confirm that `john01.com` successfully points to the Firebase hosted site.
 *   Manually add test data to the Firestore "chats" collection via the Firebase console to verify data display on the deployed web page.
 *   Implement a mechanism (e.g., a simple form) on the web page to allow adding test chat data using the `addChatData` function.
 *   Continue developing the web application to display full chat conversations and other features.
