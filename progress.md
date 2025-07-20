@@ -19,22 +19,26 @@ This document tracks the progress and status of the Thoughtless App project.
 *   **Firebase Hosting Deployment:** The basic web application has been successfully deployed to Firebase Hosting.
 *   **Deployment Verification:** The deployed web page is accessible and correctly displays "Chat Sessions" and "No chats found" (as expected since no data has been added yet), confirming successful connection to Firestore.
 *   **Custom Domain Linking (In Progress):** Initiated the process of linking the custom domain `john01.com` to the Firebase Hosting URL (`https://thoughtlessappnew.web.app`). Added the custom domain in the Firebase console and updated the TXT records in GoDaddy for domain verification.
+*   **Architecture Documentation:** Created and added `docs/DataStructures.md` to document the core data structure for chat entries and metadata for different ingestion methods, including the potential for using Google Takeout.
+*   **Git Repository Management:** Successfully navigated and overcame challenges with file naming, location, and synchronization across different Git interfaces (Firebase Studio, GitHub website, Android app). Verified that terminal commands within Firebase Studio (e.g., `git add`, `git commit`, `git push`, `git rm`) can be used reliably to manage files and push changes to the remote repository.
+*   **Repository Cleanup:** Removed unnecessary files (`DataStructures.nd`, `docs/simple_test.md`, `docs/test_write.md`) from the repository for better organization.
 
 ## Key Challenges & Issues
 
 *   **File Writing Error:** An "Internal error occurred" occasionally prevents direct file writing by the AI. Workaround: Use the Android Git App for file creation/editing.
 *   **Cloud Build Quota Restrictions:** Previous issues with Cloud Build deployment failures due to apparent quota restrictions in `europe-west2` remain a concern for future CI/CD setup.
+
 *   **Firebase Studio Interface Issues:** Challenges with the Firebase Studio interface (window resizing, copy-paste, scrolling) persist.
 *   **Firebase Console Navigation:** Difficulty navigating the Firebase Console, particularly for finding specific information like quotas.
 *   **AI Tooling Limitations:** Recognition of limitations in AI tooling within Firebase Studio (e.g., interactive terminal commands, direct project configuration querying).
 *   **Custom Domain DNS Propagation:** Waiting for DNS propagation of updated TXT records for `john01.com` to complete before Firebase can verify domain ownership and provide A record details.
+*   **UI/Git Integration Issues:** Significant challenges encountered with using Firebase Studio, GitHub web, and Android Git app GUIs for basic Git file management (moving, renaming), highlighting potential design flaws. Terminal commands within Firebase Studio proved more reliable for these tasks after initial interaction issues.
 
-## Next Steps
+## Next Steps (Updated)
 
-*   **Monitor DNS Propagation:** Wait for the TXT record changes for `john01.com` to propagate and for Firebase to verify domain ownership.
-*   **Obtain and Update A Records:** Once verified, get the A record values from the Firebase console and update the A records for `john01.com` in GoDaddy.
-*   **Wait for A Record Propagation:** Allow time for the A record changes to propagate.
-*   **Verify Domain Connection:** Confirm that `john01.com` successfully points to the Firebase hosted site.
-*   Manually add test data to the Firestore "chats" collection via the Firebase console to verify data display on the deployed web page.
-*   Implement a mechanism (e.g., a simple form) on the web page to allow adding test chat data using the `addChatData` function.
-*   Continue developing the web application to display full chat conversations and other features.
+*   Update `docs/OverallArchitectureOverview.md` to include a link to the new `docs/DataStructures.md` document.
+*   Continue with previously planned next steps (domain setup, data interaction).
+*   Investigate Google Takeout for Gemini chat history as a potential data source.
+*   Add explicit mention of the 6-line output limitation in `newsession.md`.
+*   Explore if Firebase Studio's automatic Git refresh reliably commits and pushes changes made through the file explorer after manual staging (as we did with `DataStructures.md`).
+
