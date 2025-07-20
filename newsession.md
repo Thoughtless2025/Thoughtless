@@ -11,7 +11,7 @@ Upon reading this document, the AI system shall:
 
 1.  **Prioritize User Accessibility:** All interactions and instructions shall adhere to the user's preference for voice input, clear textual output, and command-line focused operations, accommodating visual impairment.
 2.  **Acknowledge Tooling and Workflow:** Understand the distributed workflow across Gemini App (Android, for ideation/snippets), Gemini in Firebase Studio (for agent actions/file manipulation), and Android Git App (for reliable local file operations and version control).
-3.  **Recognize Persistence Strategy:** Internalize that the Git repository (`Thoughtless2025/Thoughtless`) functions as the primary persistent storage and central source of truth, mitigating AI instance statelessness. Automatic `git add` and `git push` operations for relevant files (as instructed by the user or inferred) are the default.
+3.  **Recognize Persistence Strategy:** Internalize that the Git repository (`https://github.com/Thoughtless2025/Thoughtless.git`) functions as the primary persistent storage and central source of truth, mitigating AI instance statelessness. Automatic `git add` and `git push` operations for relevant files (as instructed by the user or inferred) are the default **if direct programmatic Git access is available to this AI instance.**
 4.  **Reference Project Identifiers:** Note the Firebase Project Name: `ThoughtlessAppNew` and Project ID: `thoughtlessappnew`.
 5.  **Understand Known System Limitations:** Be aware of the following persistent environmental or tooling challenges:
     * **File Writing Error (Firebase Studio):** Recurring "Internal error occurred" when attempting file writes. The prescribed workaround is to guide the user to utilize the Android Git App for direct file creation/editing.
@@ -28,14 +28,19 @@ To initiate a new session and load full project context, the user will explicitl
 
 Upon this command, the AI shall perform the following sequence:
 
-1.  **Execute `git pull`:** Synchronize the local workspace with the remote Git repository. This is critical to ensure all dynamic context documents (`progress.md`, `current_blockers.md`, `current_error_logs.md`) are the absolute latest versions.
-2.  **Read Context Documents:** Thoroughly read and internalize the contents of:
-    * `newsession.md` (this document, for static protocol and environment setup)
-    * `progress.md` (for the overall project status and completed tasks)
-    * `current_blockers.md` (for active technical challenges and pending issues)
-    * `current_error_logs.md` (for detailed error messages related to current blockers)
-3.  **Analyze Git Logs:** Review recent Git commit logs (from the `git pull` operation) to understand recent user actions and changes.
-4.  **Confirm Readiness:** Explicitly confirm readiness to resume work by stating:
+1.  **Context Document Retrieval Decision:**
+    * **If direct programmatic access to Git (`https://github.com/Thoughtless2025/Thoughtless.git`) is available to this AI instance:**
+        * Execute `git pull` to synchronize the local workspace with the remote Git repository.
+        * Then, thoroughly read and internalize the contents of `newsession.md` (this document), `progress.md`, `current_blockers.md`, and `current_error_logs.md` from the synchronized workspace.
+    * **Else (if direct programmatic Git access is NOT available, or if unsure):**
+        * Prompt the user: "I do not have direct access to your Git repository. To get the latest project context, please provide the contents of the following files. Once you have pasted the content of one file, indicate the next file you are pasting (e.g., 'Now pasting `progress.md`'):"
+        * "First, please paste the entire content of `newsession.md` (this document)."
+        * "Next, please paste the entire content of `progress.md`."
+        * "Next, please paste the entire content of `current_blockers.md`."
+        * "Finally, please paste the entire content of `current_error_logs.md`."
+        * Wait for the user's input for each document before proceeding to the next logical step (e.g., after `current_error_logs.md` is provided).
+2.  **Analyze Git Logs (if applicable):** If Git operations were performed directly by the AI, review recent Git commit logs from the `git pull` operation to understand user actions and changes. If content was user-provided, rely on the provided document content itself.
+3.  **Confirm Readiness:** Explicitly confirm readiness to resume work by stating:
     * The last known project focus (derived from `progress.md`).
     * Any immediate high-priority blockers (derived from `current_blockers.md`).
     * Any key error messages from `current_error_logs.md`.
@@ -49,7 +54,12 @@ If, after executing the "Initialize session with project context" command, the A
 In such cases, the AI shall prompt the user to:
 
 1.  Explicitly state the discrepancy and briefly remind the AI of the last significant progress made.
-2.  Instruct the AI to re-attempt the Git operations to `add`, `commit`, and `push` `progress.md` (and any other relevant updated files).
-3.  Once the AI confirms successful Git operations, recommend ending the current session and initiating a new one using the "Initialize session with project context" command to verify full context loading.
+2.  **Git Push Decision:**
+    * **If direct programmatic access to Git is available to this AI instance:**
+        * Instruct the AI to re-attempt the Git operations to `add`, `commit`, and `push` `progress.md` (and any other relevant updated files).
+    * **Else (if direct programmatic Git access is NOT available, or if unsure):**
+        * Prompt the user: "It seems our documents might not be synchronized. Please ensure your local `progress.md` (and any other updated files) are committed and pushed to your Git repository. Once you have done so, please confirm."
+        * Wait for the user's confirmation.
+3.  Once the AI confirms successful Git operations (either direct or via user-provided confirmation), recommend ending the current session and initiating a new one using the "Initialize session with project context" command to verify full context loading.
 
 ---
