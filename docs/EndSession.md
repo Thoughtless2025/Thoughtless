@@ -26,12 +26,12 @@ Verify that all local changes made during the session are committed and pushed t
 
 Briefly note any tasks that were not completed or any specific areas that should be the focus of the next development session. This helps maintain continuity.
 
-## 5. Mandatory Final Repository Check
+## 5. Mandatory Final Commit and Push
 
-Before concluding, confirm that the latest changes, including the updated `progress.md`, are reflected in the remote repository. This is a crucial step for ensuring continuity across sessions.
+As a crucial final step to ensure repository consistency across all environments and mitigate potential synchronization issues, perform a final commit and push of all pending changes.
 
-*   **AI Action:** Provide the user with the necessary commands to check the remote repository status.
-*   **User Action:** Run the provided commands and confirm that the latest commit is visible on the remote branch.
+*   **AI Action:** Provide the user with the necessary command sequence (`git add`, `git commit`, `git push`) to perform this final synchronization.
+*   **User Action:** Run the provided commands.
 
 ---
 
