@@ -19,16 +19,19 @@ Trigger the AI assistant to update the main project progress document (`progress
 
 Verify that all local changes made during the session are committed and pushed to the remote repository (`origin/main`).
 
-*   **AI Action:** Run `git status` to check for uncommitted changes. If changes exist, run `git add .` (or stage specific files) and `git commit -m "End session commit - <timestamp>"` to commit.
+*   **AI Action:** Run `git status` to check for uncommitted changes. If changes exist, run `git add .` (or stage specific files) and `git commit -m "End session commit"` to commit.
 *   **User Action (if AI commit/push fails or automatic sync is used):** Confirm through your Git tools (Firebase Studio Git panel, GitHub web, or Android app) that all local changes are synchronized with the remote repository. If not, manually commit and push pending changes.
 
 ## 4. Note Pending Items / Next Session Focus
 
 Briefly note any tasks that were not completed or any specific areas that should be the focus of the next development session. This helps maintain continuity.
 
-## 5. Final Repository Check (Optional but recommended)
+## 5. Mandatory Final Repository Check
 
-Before concluding, quickly check the remote repository on GitHub (via web or app) to visually confirm that the latest changes, including the updated `progress.md`, are reflected.
+Before concluding, confirm that the latest changes, including the updated `progress.md`, are reflected in the remote repository. This is a crucial step for ensuring continuity across sessions.
+
+*   **AI Action:** Provide the user with the necessary commands to check the remote repository status.
+*   **User Action:** Run the provided commands and confirm that the latest commit is visible on the remote branch.
 
 ---
 
