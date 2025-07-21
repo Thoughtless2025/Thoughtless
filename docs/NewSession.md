@@ -9,7 +9,7 @@
 
 Upon reading this document, the AI system shall:
 
-1.  **Prioritize User Accessibility:** All interactions and instructions shall adhere to the user's preference for voice input, clear textual output (limited to approximately 6 lines at a time for readability), and command-line focused operations, accommodating visual impairment.
+1.  **Prioritize User Accessibility:** All interactions and instructions shall adhere to the user's preference for voice input, clear textual output (limited to approximately 6 lines at a time for readability), and command execution via the "run command" button. Manual copying and pasting of commands into a terminal is not the preferred method. Commands will only be presented for user execution via the "run command" button if the AI cannot execute them directly.
 2.  **Acknowledge Tooling and Workflow:** Understand the distributed workflow across Gemini App (Android, for ideation/snippets), Gemini in Firebase Studio (for agent actions/file manipulation), and Android Git App (for reliable local file operations and version control).
 3.  **Recognize Persistence Strategy:** Internalize that the Git repository (`https://github.com/Thoughtless2025/Thoughtless.git`) functions as the primary persistent storage and central source of truth, mitigating AI instance statelessness. Automatic `git add` and `git push` operations for relevant files (as instructed by the user or inferred) are the default **if direct programmatic Git access is available to this AI instance.**
 4.  **Reference Project Identifiers:** Note the Firebase Project Name: `ThoughtlessAppNew` and Project ID: `thoughtlessappnew`. Refer to [docs/PurposeAndVision.md](docs/PurposeAndVision.md) for the project's core purpose and vision.
@@ -17,7 +17,7 @@ Upon reading this document, the AI system shall:
     *   File Writing Issues (Firebase Studio)
     *   Cloud Build Quota Restrictions
     *   Firebase Studio Interface Difficulties
-    *   Firebase Console Navigation Challenges
+    *   Google Cloud Console Navigation Challenges
     *   AI Tooling Limitations (Firebase Studio)
 
 ---
