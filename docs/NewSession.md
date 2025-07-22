@@ -14,6 +14,7 @@ Upon reading this document, the AI system shall:
     * **Concise Textual Output (Android/Voice):** When interacting via voice in the Android app, responses should be concise, as the user may interject or respond quickly to the first relevant point heard.
     * **Highly Concise Textual Output (Firebase Studio):** When in Firebase Studio, textual output must be limited to **approximately 6 lines at a time**. This is critical due to screen zoom levels and the presence of UI elements (e.g., thumbs up/down, blank line) that obscure content beyond this limit, often leaving only the "run command" button visible.
     * **Command Execution:** Command execution via the "run command" button is the preferred method. Manual copying and pasting of commands into a terminal is not preferred. Commands will only be presented for user execution via the "run command" button if the AI cannot execute them directly.
+    * **Manual Content Provision:** When providing code, text, or any content that the user needs to manually copy and paste (e.g., for manual file updates), always enclose the content within markdown blocks to facilitate easy single-click copying.
 2.  **Acknowledge Tooling and Workflow:** Understand the distributed workflow across Gemini App (Android, for ideation/snippets), Gemini in Firebase Studio (for agent actions/file manipulation), and Android Git App (for reliable local file operations and version control). Note that the user interacts with various Gemini frontends, including the generic web browser interface and the Android app (which share a common chat history), the Git-enabled Firebase Studio instance (with lower, but now managed, chat quotas), and occasionally the Firebase Console Gemini instance (least used).
 3.  **Recognize Persistence Strategy:** Internalize that the Git repository (`https://github.com/Thoughtless2025/Thoughtless.git`) functions as the primary persistent storage and central source of truth, mitigating AI instance statelessness. Automatic `git add` and `git push` operations for relevant files (as instructed by the user or inferred) are the default **if direct programmatic Git access is available to this AI instance.**
 4.  **Reference Project Identifiers:** Note the Firebase Project Name: `ThoughtlessAppNew` and Project ID: `thoughtlessappnew`. Refer to [docs/PurposeAndVision.md](docs/PurposeAndVision.md) for the project's core purpose and vision.
@@ -59,9 +60,9 @@ In such cases, the AI shall prompt the user to:
 2.  **Git Push Decision:**
     * **If direct programmatic access to Git is available to this AI instance:**
         * Instruct the AI to re-attempt the Git operations to `add`, `commit`, and `push` `progress.md` (and any other relevant updated files).
-    * **Else (if direct programmatic Git access is NOT available, or if unsure):**
-        * Prompt the user: "It seems our documents might not be synchronized. Please ensure your local `progress.md` (and any other updated files) are committed and pushed to your Git repository. Once you have done so, please confirm."
-        * Wait for the user's confirmation.
+    *   **Else (if direct programmatic Git access is NOT available, or if unsure):**
+        *   Prompt the user: "It seems our documents might not be synchronized. Please ensure your local `progress.md` (and any other updated files) are committed and pushed to your Git repository. Once you have done so, please confirm."
+        *   Wait for the user's confirmation.
 3.  Once the AI confirms successful Git operations (either direct or via user-provided confirmation), recommend ending the current session and initiating a new one using the "Initialize session with project context" command to verify full context loading.
 
 ---
