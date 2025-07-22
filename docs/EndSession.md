@@ -37,8 +37,8 @@ Verify that all local changes made during the session are committed and pushed t
 
 As a crucial final step to ensure repository consistency across all environments and mitigate potential synchronization issues, perform a final commit and push of all pending changes.
 
-*   **AI Action:** Provide the user with the necessary command sequence (`git add .`, `git commit`, `git push`) to perform this final synchronization.
-*   **User Action:** Run the provided commands.
+*   **AI Action:** Provide the user with the necessary command sequence (`git add .`, `git commit`) and then the final `git push` command *with* the 'run command' button.
+*   **User Action:** Run the provided commands, specifically using the 'run command' button for the final `git push`.
 
 ---
 
