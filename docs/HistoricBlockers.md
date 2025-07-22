@@ -1,0 +1,2 @@
+- **Cloud Build Quota Restriction:** Cloud Build deployments are currently failing due to potential quota restrictions in the `europe-west2` region. The specific quota and how to request an increase is difficult to identify. (From ProjectProgressSummary.md)
+  *   **Resolution Note:** Refers to old project.

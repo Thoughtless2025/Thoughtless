@@ -30,15 +30,15 @@ Based on the review of outstanding issues and session progress, outline the key 
 
 Verify that all local changes made during the session are committed and pushed to the remote repository (`origin/main`).
 
-*   **AI Action:** Run `git status` to check for uncommitted changes. If changes exist, run `git add .` (or stage specific files) and `git commit -m "End session commit"` to commit.
-*   **User Action (if AI commit/push fails or automatic sync is used):** Confirm through your Git tools (Firebase Studio Git panel, GitHub web, or Android app) that all local changes are synchronized with the remote repository. If not, manually commit and push pending changes.
+*   **AI Action:** Run `git status` to check for uncommitted changes. If changes exist, present the necessary `git add .` (or stage specific files) and `git commit -m "End session commit"` commands to the user with the 'run command' button.
+*   **User Action:** Use the 'run command' button to execute the provided `git add` and `git commit` commands.
 
 ## 6. Mandatory Final Commit and Push
 
 As a crucial final step to ensure repository consistency across all environments and mitigate potential synchronization issues, perform a final commit and push of all pending changes.
 
-*   **AI Action:** Provide the user with the necessary command sequence (`git add .`, `git commit`) and then the final `git push` command *with* the 'run command' button.
-*   **User Action:** Run the provided commands, specifically using the 'run command' button for the final `git push`.
+*   **AI Action:** Present the final `git push` command to the user with the 'run command' button.
+*   **User Action:** Use the 'run command' button to execute the provided `git push` command.
 
 ---
 
